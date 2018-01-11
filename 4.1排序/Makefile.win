@@ -1,0 +1,29 @@
+# Project: 4-1
+# Makefile created by Dev-C++ 5.2.0.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = A1062.o $(RES)
+LINKOBJ  = A1062.o $(RES)
+LIBS     = -L"K:/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc  
+INCS     = -I"K:/Dev-Cpp/MinGW32/include" 
+CXXINCS  = -I"K:/Dev-Cpp/MinGW32/include" 
+BIN      = 4-1.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before 4-1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "4-1.exe" $(LIBS)
+
+A1062.o: A1062.cpp
+	$(CPP) -c A1062.cpp -o A1062.o $(CXXFLAGS)
