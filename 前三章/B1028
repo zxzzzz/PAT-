@@ -1,0 +1,44 @@
+#include<cstdio>
+struct People{
+	char name[6];
+	int year,month,day;
+}left,right,young,old,temp;
+//前者小 
+bool isLess(People p1,People p2){
+	if(p1.year!=p2.year)
+		return p1.year>p2.year;
+	else if(p1.month!=p2.month)
+		return p1.month>p2.month;
+	else
+	 	return p1.day>=p2.day; 
+}
+void init(){
+	young.year=left.year=1814;
+	old.month=right.month=young.month=left.month=9;
+	old.day=right.day=young.day=left.day=6;
+	old.year=right.year=2014;		
+}
+
+int main(){
+	int n;
+	int count=0;
+	init();
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		scanf("%s %d/%d/%d",temp.name,&temp.year,&temp.month,&temp.day);
+		//合法 
+		if(isLess(temp,left)&&isLess(right,temp)){
+			count++;
+			//比小的小 
+			if(isLess(temp,young))
+				young=temp;
+			if(isLess(old,temp))
+				old=temp;			
+		}	
+	}
+	if(count==0)
+		printf("0\n");
+	else
+		printf("%d %s %s\n",count,old.name,young.name);	
+	return 0;
+}

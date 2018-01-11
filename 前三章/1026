@@ -1,0 +1,28 @@
+#include<cstdio>
+int main(){
+	int pa,da,pb,db;
+	scanf("%d%d%d%d",&pa,&da,&pb,&db);
+	int t1=0,t2=0;
+	while(pa!=0){
+		int temp=pa%10;
+		pa=pa/10;
+		if(temp==da)
+			t1++;
+	}
+	while(pb!=0){
+		int temp=pb%10;
+		pb=pb/10;
+		if(temp==db)
+			t2++;
+	}
+	int suma=da;
+	int sumb=db;
+	while(--t1){
+		suma=suma*10+da;	
+	}
+	while(--t2){
+		sumb=sumb*10+db;
+	}
+	printf("%d",sumb+suma);
+	return 0;
+}

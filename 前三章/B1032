@@ -1,0 +1,21 @@
+#include<cstdio>
+const int MAX=100010;
+int school[MAX]={};
+int main(){
+	int n;
+	int maxValue=0,maxId=0;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		int index,score;
+		scanf("%d%d",&index,&score);
+		school[index]+=score;
+		if(school[index]>maxValue)
+		{
+			maxValue=school[index];
+			maxId=index;
+		}
+		
+	}
+	printf("%d %d",maxId,maxValue);
+	return 0;
+}

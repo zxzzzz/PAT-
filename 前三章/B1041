@@ -1,0 +1,25 @@
+#include<cstdio>
+struct Stu{
+	long long index;
+	int num;
+}stu[1000];
+int main(){
+	int n,k;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		int temp1;
+		long long  s;
+		int temp2;
+		scanf("%lld %d%d",&s,&temp1,&temp2);
+		stu[temp1].index=s;
+		stu[temp1].num=temp2;
+	}
+	scanf("%d",&k);
+	for(int i=0;i<k;i++){
+		int search;
+		scanf("%d",&search);
+		printf("%lld %d\n",stu[search].index,stu[search].num);
+	}
+	return 0;
+	
+}

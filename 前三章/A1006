@@ -1,0 +1,41 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+
+struct Person{
+	char name[20];
+	int hour;
+	int min;
+	int sec;	
+}first,last,temp;
+bool compare(Person	 t1,Person	 t2){
+	if(t1.hour!=t2.hour)	return t1.hour<t2.hour;
+	else if(t1.min!=t2.min)	return t1.min<t2.min;
+	else return t1.sec<t2.sec;	
+}
+void init(){
+	last.hour=24;
+	first.hour=first.min=first.sec=0;
+	last.min=last.sec=60;
+}
+int main(){
+	freopen("in.txt","r",stdin); //输入重定向，输入数据将从in.txt文件中读取 
+	freopen("out","w",stdout); //输出重定向，输出数据将保存在out.txt文件中 
+	printf("你是狗");
+	int n;
+	init();
+	scanf("%d",&n);
+	for(int i=0;i<n;i++){
+		scanf("%s %d:%d:%d ",temp.name,&temp.hour,&temp.min,&temp.sec);
+		if(compare(temp,first))
+			first=temp;
+		scanf("%d:%d:%d ",&temp.hour,&temp.min,&temp.sec);	
+		if(compare(last,temp))
+			last=temp;				
+	}
+	printf("%s %s\n",first.name,last.name);
+	fclose(stdin);//关闭文件 
+	fclose(stdout);//关闭文件 
+	return 0;
+}

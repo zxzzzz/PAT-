@@ -1,0 +1,26 @@
+#include<cstdio>
+const int MAX=100;
+int number[MAX]={0};
+void rot(int &[]a ,int left,int right){
+	int temp;
+	int r1=right;
+	for(int i=left;i<right;i++){
+		temp=a[i];
+		a[i]=a[r1];
+		a[r1]=temp;
+		r1--;
+	}
+}
+
+int main(){
+	int n,off;
+	scanf("%d%d",&n,&off);
+	for(int i=0;i<n;i++)
+		scanf("%d",&number[i]);
+	rot(number,0,n-1);
+	rot(number,0,off-1);
+	rot(number,off,n-1);
+	
+		
+}
+

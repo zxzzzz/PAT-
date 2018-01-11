@@ -1,0 +1,46 @@
+#include<cstdio>
+const int MAX=10;
+int a1[MAX]={
+	0
+};
+int a2[MAX]={
+	0
+};
+int a3[MAX]={
+	0
+};
+int main(){
+	int m1,m2;
+	int count=0;
+	int index,value;
+	scanf("%d",&m1);
+	
+	m1=m1*2;
+	while(m1--){ 
+		scanf("%d%d",&index,&value);
+		a1[index]=value;
+	}
+	scanf("%d",&m2);
+	m2=m2*2;
+	while(m2--){
+		scanf("%d%d",&index,&value);
+		a2[index]=value;
+	}
+	int i=9;
+	while(i--){
+		a3[i]=a1[i]+a2[i];		
+		if(a3[i]!=0)
+		{
+			count++;
+			
+		}
+	}
+	printf("%d",&count);
+	i=9;
+	while(i--){
+		if(a3[i]!=0){
+			printf(" %d %d",i,a3[i])
+		}
+	}
+	return 0;	
+} 
